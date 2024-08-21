@@ -10,6 +10,7 @@
       background-image: url(images/ocean.jpg);
       background-repeat: no-repeat;
       background-position: 100%;
+      background-size: cover;
       color: #333;
       display: flex;
       justify-content: center;
@@ -25,6 +26,9 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       padding: 20px;
       margin: auto;
+      background-image: url(images/balat.jpeg);
+      background-repeat: no-repeat;
+      background-size: cover;
   }
   
   header {
@@ -43,6 +47,8 @@
   .phone-book {
       display: flex;
       flex-direction: column;
+     
+     
   }
   
   
@@ -57,6 +63,7 @@
       margin-bottom: 10px;
       transition: transform 0.2s;
       justify-content: space-between;
+      
   }
   
   li:hover {
@@ -167,12 +174,7 @@
   
   }
   
-  /* .edit-button, .delete-button {
-      border: none;
-      padding: 5px 10px;
-      cursor: pointer;
-      margin: 2px 0;
-  } */
+
   
   .edit-button {
       border-radius: 3rem;
@@ -323,7 +325,8 @@ justify-content: center;
       height: 50px;
 
   }
-@media only screen and (max-width: 600px) {
+  
+  @media only screen and (max-width: 600px) {
     .contact-img {
       border-radius: 50%;
       width: 50px;
