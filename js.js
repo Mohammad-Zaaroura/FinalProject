@@ -115,7 +115,7 @@ function popEdit(ind) {
 }
 
 function dltAll() {
-  let isOk = confirm("Are you sure?");
+  let isOk = confirm("Are you sure you want to delete all the contacts?");
   if (isOk) {
     list.innerHTML =
       `
@@ -127,7 +127,7 @@ function dltAll() {
 }
 
 function dltContact(ind) {
-  let isOk = confirm("Are you sure?");
+  let isOk = confirm(`Are you sure you want to delete contact of ${users[ind].name} ?`);
   if (isOk) {
     users = users.slice(0, ind).concat(users.slice(ind + 1))
     list.innerHTML = ``;
