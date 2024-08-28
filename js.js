@@ -160,7 +160,7 @@ function saveNew() {
   let newName = document.querySelector("#addName").value;
   let newNumber = document.querySelector("#addNumber").value;
   let newEmail = document.querySelector("#addEmail").value;
-
+ 
   if (newName === "" || newNumber === "") {
     alert("name or number can't be empty");
   } else {
@@ -224,7 +224,7 @@ function searchContact(e) {
   sortContacts(users);
   const filteredList = users
     .filter(user => {
-      return user.name.toLowerCase().startswith(e.target.value.toLowerCase());
+      return user.name.toLowerCase().startsWith(e.target.value.toLowerCase());
     });
   list.innerHTML = ``;
   filteredList.forEach(user => {
