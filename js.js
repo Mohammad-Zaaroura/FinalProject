@@ -224,7 +224,7 @@ function searchContact(e) {
   sortContacts(users);
   const filteredList = users
     .filter(user => {
-      return user.name.toLowerCase().includes(e.target.value.toLowerCase());
+      return user.name.toLowerCase().startswith(e.target.value.toLowerCase());
     });
   list.innerHTML = ``;
   filteredList.forEach(user => {
