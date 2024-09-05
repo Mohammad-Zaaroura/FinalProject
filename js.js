@@ -227,8 +227,8 @@ function searchContact(e) {
       return user.name.toLowerCase().startsWith(e.target.value.toLowerCase());
     });
   list.innerHTML = ``;
-  filteredList.forEach(user => {
-    addContact(user);
+  filteredList.forEach((user , ind) => {
+    addContact(user , ind);
   })
 }
 
