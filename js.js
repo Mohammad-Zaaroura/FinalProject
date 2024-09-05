@@ -76,18 +76,15 @@ function sortContacts(contacts) {
 sortContacts(users);
 users.forEach((contact, ind) => addContact(contact, ind));
 
-
-
-
 function popInfo(ind) {
   openModal();
   const modalCont = document.querySelector(".modal-container");
-  const contact = users[ind]
+  const contact = users[ind];
   modalCont.innerHTML =
     `
     <img src="https://picsum.photos/200/300?random=${ind}"  alt="Error 404">
-    <p>Name: ${contact.name}</p><br
-    <p>Number: ${contact.number}</p><br
+    <p>Name: ${contact.name}</p><br>
+    <p>Number: ${contact.number}</p><br>
     ${contact.email === "" ? "" :
       `
       <p>Email: ${contact.email}</p>
@@ -101,7 +98,7 @@ function popInfo(ind) {
 function popEdit(ind) {
   openModal();
   const modalCont = document.querySelector(".modal-container");
-  const contact = users[ind]
+  const contact = users[ind];
   modalCont.innerHTML =
     `
     <form>
@@ -129,9 +126,9 @@ function dltAll() {
 function dltContact(ind) {
   let isOk = confirm(`Are you sure you want to delete contact of ${users[ind].name} ?`);
   if (isOk) {
-    users = users.slice(0, ind).concat(users.slice(ind + 1))
+    users = users.slice(0, ind).concat(users.slice(ind + 1));
     list.innerHTML = ``;
-    users.forEach((contact, ind) => addContact(contact, ind))
+    users.forEach((contact, ind) => addContact(contact, ind));
     if (users.length === 0)
       list.innerHTML =
         `
@@ -141,16 +138,14 @@ function dltContact(ind) {
   }
 }
 
-
-
 function popAdd() {
   openModal();
   const modalCont = document.querySelector(".modal-container");
   modalCont.innerHTML =
     `
     <img src="https://picsum.photos/200/300?random=100" alt="Error 404">
-    <p>Name: <input id="addName" type="text" placeholder="name"> </p><br
-    <p>Number: <input id="addNumber" type="number" placeholder="number"></p><br
+    <p>Name: <input id="addName" type="text" placeholder="name"> </p><br>
+    <p>Number: <input id="addNumber" type="number" placeholder="number"></p><br>
     <p>Email: <input id="addEmail" type="email" placeholder="email"></p>
     <button id="saveBtn" onclick="saveNew()">Save</button>
   `
@@ -165,11 +160,11 @@ function saveNew() {
     alert("name or number can't be empty");
   } else {
     if (checkName(newName)) {
-      alert("name is exist")
+      alert("name is exist");
       return;
     }
     if (checkNumber(newNumber)) {
-      alert("number is exist")
+      alert("number is exist");
       return;
     }
     if (newEmail !== "") {
@@ -196,12 +191,12 @@ function saveEdit(event, ind) {
   if (newName === "" || newNumber === "") {
     alert("name or number can't be empty");
   } else {
-    if(checkName(newName,ind)){
-      alert("name is exist")
+    if (checkName(newName, ind)) {
+      alert("name already exists");
       return;
     }
-    if (checkNumber(newNumber,ind)) {
-      alert("number is exist")
+    if (checkNumber(newNumber, ind)) {
+      alert("number already exists");
       return;
     }
     if (newEmail !== "") {
@@ -209,7 +204,6 @@ function saveEdit(event, ind) {
         alert("Invalid email address");
         return;
       }
-      
     }
     const newUser = { name: newName, number: newNumber, email: newEmail };
     users[ind] = newUser;
@@ -228,21 +222,17 @@ function searchContact(e) {
       return user.name.toLowerCase().startsWith(e.target.value.toLowerCase());
     });
   list.innerHTML = ``;
-  filteredList.forEach((user,ind) => {
+  filteredList.forEach((user, ind) => {
     addContact(user, ind);
   })
 }
-
-
 
 function validateEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 }
 
-
-
-function checkNumber(number,ind) {
+function checkNumber(number, ind) {
   for (let i = 0; i < users.length; i++) {
     if (i !== ind && users[i].number === number) {
       return true;
@@ -252,6 +242,10 @@ function checkNumber(number,ind) {
 }
 
 function checkName(name, ind) {
-  for (let i = 0; i < users.length; i++)
-    return (i !== ind && users[i].name === name)
+  for (let i = 0; i < users.length; i++) {
+    if (i !== ind && users[i].name === name) {
+      return true;
+    }
+  }
+  return false;
 }
