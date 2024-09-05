@@ -292,6 +292,9 @@ justify-content: center;
   #saveBtn {
       margin: 10px;
   }
+#saveBtn:hover {
+    cursor: pointer;
+  }
 
   #editName,
   #editNumber,
