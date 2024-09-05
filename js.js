@@ -209,6 +209,7 @@ function saveEdit(event, ind) {
         alert("Invalid email address");
         return;
       }
+      
     }
     const newUser = { name: newName, number: newNumber, email: newEmail };
     users[ind] = newUser;
@@ -227,8 +228,8 @@ function searchContact(e) {
       return user.name.toLowerCase().startsWith(e.target.value.toLowerCase());
     });
   list.innerHTML = ``;
-  filteredList.forEach((user , ind) => {
-    addContact(user , ind);
+  filteredList.forEach((user,ind) => {
+    addContact(user, ind);
   })
 }
 
