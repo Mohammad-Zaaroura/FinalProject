@@ -61,6 +61,7 @@ function addContact(contact, ind) {
             
   `
   list.append(li);
+  document.getElementById("numberofusers").textContent = `Number of Users : ${users.length}`;
 }
 
 
@@ -121,6 +122,7 @@ function dltAll() {
     `
     users = [];
   }
+  document.getElementById("numberofusers").textContent = `You dont have Users`;
 }
 
 function dltContact(ind) {
@@ -129,12 +131,14 @@ function dltContact(ind) {
     users = users.slice(0, ind).concat(users.slice(ind + 1));
     list.innerHTML = ``;
     users.forEach((contact, ind) => addContact(contact, ind));
-    if (users.length === 0)
+    if (users.length === 0) {
       list.innerHTML =
         `
         <p id="inner"> No contacts were added  </p>
 
-        `
+        `;
+      document.getElementById("numberofusers").textContent = `You dont have Users`;
+    }
   }
 }
 
@@ -155,7 +159,7 @@ function saveNew() {
   let newName = document.querySelector("#addName").value;
   let newNumber = document.querySelector("#addNumber").value;
   let newEmail = document.querySelector("#addEmail").value;
- 
+
   if (newName === "" || newNumber === "") {
     alert("name or number can't be empty");
   } else {
